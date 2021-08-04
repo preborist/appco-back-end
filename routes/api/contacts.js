@@ -8,10 +8,17 @@ const { listContacts, getContactById } = require('../../model/index');
 //   schemaStatusContact,
 // } = require('./validation');
 
-router.get('/', async (_req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const results = await listContacts();
-    return res.status(200).json({ status: 'success', code: 200, results });
+    // const { total, limit, page, usersData, statistics } = await listContacts();
+    // req.query,
+    return res.status(200).json({
+      status: 'success',
+      code: 200,
+      results,
+      // results: { total, limit, page, usersData, statistics },
+    });
   } catch (error) {
     next(error);
   }

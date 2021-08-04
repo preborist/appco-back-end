@@ -13,6 +13,9 @@ const userStatisticSchema = new Schema(
     clicks: {
       type: String,
     },
+    page_views: {
+      type: String,
+    },
   },
   {
     versionKey: false,

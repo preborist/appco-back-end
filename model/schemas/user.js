@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const mongoosePaginate = require('mongoose-paginate-v2');
 
 const userSchema = new Schema(
   {
@@ -47,6 +48,8 @@ const userSchema = new Schema(
 //   const re = /[A-Z]\w+/;
 //   return re.test(String(value));
 // });
+
+// userSchema.plugin(mongoosePaginate);
 
 const User = mongoose.model('user', userSchema);
 
