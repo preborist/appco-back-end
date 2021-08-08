@@ -47,6 +47,7 @@ const getContactsTotalClicks = async () => {
 
 const getContactById = async userId => {
   const statistics = await UserStatistic.find({});
+  const user = await User.find({ id: userId });
 
   if (statistics.length === 0) {
     // const updatedUserStatistic = await UserStatistic.create(dataUserStatistic);
@@ -57,7 +58,7 @@ const getContactById = async userId => {
 
   const userStatistic = await UserStatistic.find({ user_id: userId });
 
-  return userStatistic;
+  return { userStatistic, user };
 };
 
 module.exports = {
